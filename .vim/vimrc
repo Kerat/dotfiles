@@ -1,0 +1,17 @@
+set nocompatible
+
+set number
+set confirm
+set mouse=a
+
+filetype indent plugin on
+set autoindent
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set ignorecase
+set smartcase
+
+syntax on
+colorscheme monokai
