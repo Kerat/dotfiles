@@ -21,4 +21,4 @@ syntax on
 colorscheme monokai
 
 " Brackets
-set noshowmatch
+let loaded_matchparen = 0
