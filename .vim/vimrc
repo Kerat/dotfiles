@@ -1,17 +1,24 @@
 set nocompatible
 
+" UI
 set number
 set confirm
 set mouse=a
 
+" Indentation
 filetype indent plugin on
 set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" Search
 set ignorecase
 set smartcase
 
+" Color
 syntax on
 colorscheme monokai
+
+" Brackets
+set noshowmatch
