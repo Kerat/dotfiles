@@ -198,5 +198,17 @@ bindsym $mod+r mode "resize"
 #    }
 #    workspace_buttons no
 #}
+bar {
+    position top
+    font arial
+    workspace_buttons no
+    status_command i3status
+    colors {
+           statusline #ffffff
+           background #32323288
+           inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+
+}
 
 include /etc/sway/config.d/*

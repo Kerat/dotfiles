@@ -4,6 +4,7 @@
 
 * Install Wayland ?
 * Install sway : `dnf install sway`
+* Install i3 status bar : `dnf install i3status`
 
 ## Configuration
 
