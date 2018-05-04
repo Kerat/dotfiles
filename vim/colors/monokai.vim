@@ -131,7 +131,7 @@ call s:h('SublimeDarkRed',     { 'fg': s:darkred      })
 
 hi! link ColorColumn SublimeLightBlack
 hi! link Conceal SublimeLightGrey
-call s:h('CursorLine',   { 'bg': s:lightblack2                                                })
+call s:h('CursorLine',   { 'bg': s:lightblack                                                 })
 call s:h('CursorLineNr', { 'fg': s:orange,     'bg': s:lightblack                             })
 call s:h('DiffAdd',      { 'fg': s:addfg,      'bg': s:addbg                                  })
 call s:h('DiffChange',   { 'fg': s:changefg,   'bg': s:changebg                               })
