@@ -1,0 +1,5 @@
+URxvt.font: xft:inconsolata:size=11:antialias=true
+URxvt.scrollBar: false
+URxvt*foreground: White
+URxvt*depth: 32
+URxvt*background: [90]#373A46
