@@ -1,4 +1,14 @@
-﻿# Use Mod1 for Alt.
+﻿# Floating popus
+for_window [window_role="pop-up"] floating enable
+
+# Floating apps
+for_window [class="android-studio"] floating enable
+
+# Floating desktops
+for_window [workspace="9"] floating enable
+for_window [workspace="10"] floating enable
+
+# Use Mod1 for Alt.
 set $mod Mod1
 
 # Home row direction keys, like vim
@@ -65,9 +75,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+# Screen output keymap
+bindsym XF86Display exec firefox
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -185,5 +198,10 @@ bar {
            inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+# Laptop output
+output eDP-1 pos 0 0 res 1920x1080
+# HDMI1 output
+output HDMI-A-1 pos 0 -1080 res 1920x1080
 
 include /etc/sway/config.d/*
