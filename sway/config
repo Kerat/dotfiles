@@ -2,7 +2,11 @@
 for_window [window_role="pop-up"] floating enable
 
 # Floating apps
-for_window [class="android-studio"] floating enable
+for_window [title="Spotify"] floating enable
+for_window [title="Spotify"] floating_maximum_size 1000 x 750
+for_window [class="jetbrains-studio"] floating enable
+for_window [title=Panther] floating enable
+for_window [title=Panther] move left 960px
 
 # Floating desktops
 for_window [workspace="9"] floating enable
@@ -21,7 +25,8 @@ set $right l
 set $term urxvt256c-ml
 
 # Your preferred application launcher
-set $menu dmenu_run
+#set $menu dmenu_run
+set $menu panther_launcher&
 
 # Font
 font pango:Roboto 11
