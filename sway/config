@@ -84,9 +84,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
-# Screen output keymap
-bindsym XF86Display exec firefox
-
 # Move your focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
