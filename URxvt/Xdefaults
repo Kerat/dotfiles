@@ -3,3 +3,4 @@ URxvt.scrollBar: false
 URxvt*foreground: White
 URxvt*depth: 32
 URxvt*background: [90]#373A46
+Urxvt.perl-ext-common: default,clipboard

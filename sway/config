@@ -5,6 +5,10 @@ for_window [window_role="pop-up"] floating enable
 for_window [title="Spotify"] floating enable
 for_window [title="Spotify"] floating_maximum_size 1000 x 750
 for_window [class="jetbrains-studio"] floating enable
+for_window [class="Thunderbird"] floating enable, resize 500 x 500
+#for_window [class="Thunderbird"] floating enable, floating_minimum_size 1500 x 900, floating_maximum_size 1500 x 900, move absolute position center
+#for_window [class="Thunderbird"] floating_minimum_size 1500 x 900
+#for_window [class="Thunderbird"] floating_maximum_size 1500 x 900
 for_window [title=Panther] floating enable
 for_window [title=Panther] move left 960px
 
@@ -43,6 +47,9 @@ new_window 1pixel
 
 # Open Firefox
 bindsym $mod+n exec firefox
+
+# Open Thunderbird
+bindsym $mod+m exec thunderbird
 
 # start a terminal
 bindsym $mod+Return exec $term
