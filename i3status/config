@@ -25,7 +25,8 @@ volume master {
 }
 battery 0 {
     integer_battery_capacity = true
+    last_full_capacity = true
     format = "B:%percentage"
     path = "/sys/class/power_supply/BAT%d/uevent"
 }
-# 🔊
+
