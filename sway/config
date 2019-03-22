@@ -10,7 +10,8 @@ for_window [workspace="9"] floating enable
 for_window [workspace="10"] floating enable
 
 # Use Mod1 for Alt.
-set $mod Mod1
+# Mod4 for Win
+set $mod Mod4
 
 # Home row direction keys, like vim
 set $left h
