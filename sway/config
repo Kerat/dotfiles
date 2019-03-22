@@ -54,8 +54,8 @@ bindsym $mod+Shift+q kill
 # start your launcher
 bindsym $mod+d exec $menu
     
-# Lock
-bindsym Mod4+l exec swaylock -f -i ~/Images/.lock
+# Lock on Ctrl + Alt + L
+bindsym Ctrl+Mod1+l exec swaylock -f -i ~/Images/.lock
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -70,8 +70,9 @@ bindsym $mod+Shift+c reload
 # exit sway (logs you out of your wayland session)
 bindsym $mod+Shift+e exit
 
-# Shutdown computer
-bindsym $mod+Shift+Delete exec shutdown now
+# Shutdown computer with ctrl alt del
+bindsym Ctrl+Mod1+Delete exec shutdown now
+
 
 # PrintScreen
 bindsym Print exec swaygrab ~/Images/Screenshots/screenshot_$(date +%d-%m-%Y_%Hh%M).jpg
