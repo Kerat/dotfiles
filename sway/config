@@ -54,8 +54,8 @@ bindsym $mod+Shift+q kill
 # start your launcher
 bindsym $mod+d exec $menu
     
-# Lock on Ctrl + Alt + L
-bindsym Ctrl+Mod1+l exec swaylock -f -i ~/Images/.lock
+# Lock on Win + L
+bindsym Mod4+l exec swaylock -f -i ~/Images/.lock
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
