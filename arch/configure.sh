@@ -12,6 +12,6 @@ EOF
 # Activate Lightdm
 systemctl enable lightdm.service
 
-# Activate networkmanager
+# Activate NetworkManager
 systemctl enable networkmanager.service
 
