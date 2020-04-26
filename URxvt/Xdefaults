@@ -16,16 +16,18 @@ URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
 
-!! Copy Paste & Other Extensions
+!! URxvt Copy Paste & Other Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.Control-C: perl:clipboard:copy
-URxvt.keysym.Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-C-V: eval:paste_clipboard
+URxvt.keysym.Shift-C-C: eval:selection_to_clipboard
 URxvt.keysym.Control-Escape: perl:keyboard-select:activate
 URxvt.keysym.Control-s: perl:keyboard-select:search
 URxvt.keysym.Control-u: perl:url-select:select_next
-URxvt.urlLauncher: firefox
+URxvt.urlLauncher: firefox -new-tab
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 
