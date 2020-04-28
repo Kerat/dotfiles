@@ -11,6 +11,7 @@
   * git
   * sudo
   * man-db
+  * bash-completion
  ## Network
   * network-manager
  ## System
