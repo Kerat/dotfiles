@@ -11,7 +11,7 @@ local beautiful = require("beautiful")
 -- beautiful.init(awful.util.getdir(".") .. "theme.lua")
 beautiful.init("~/.config/awesome/theme_gtk.lua")
 
--- Includes configurations files
+-- Includes configurations files (order means something)
 require("apps")
 require("errors")
 require("key_bindings")
