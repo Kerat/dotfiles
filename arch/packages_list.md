@@ -12,6 +12,8 @@
   * sudo
   * man-db
   * bash-completion
+  * which
+  * vim
  ## Network
   * network-manager
  ## System
@@ -20,6 +22,7 @@
   * grub
   * base
   * base-devel
+  * yay
 # YAY
  ## Fonts
   * ttf-iosevka
