@@ -5,6 +5,7 @@
   * ligthdm-gtk-greeter
   * arandr
   * awesome
+  * picom
  ## Utils
   * firefox
   * rvxt-unicode

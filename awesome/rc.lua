@@ -22,4 +22,5 @@ require("mouse")
 require("rules")
 require("signals")
 require("titlebar")
+require("autostart")
 
