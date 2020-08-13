@@ -14,6 +14,7 @@
   * bash-completion
   * which
   * vim
+  * scrot
  ## Network
   * network-manager
  ## System

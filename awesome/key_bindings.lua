@@ -65,6 +65,12 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({ "Mod4",           }, "l", function () awful.spawn(lock) end,
+              {description = "Lock the screen", group = "launcher"}),
+    awful.key({ "Mod1", "Control" }, "Delete", function () awful.spawn(shutdown) end,
+              {description = "Shutdown computer", group = "launcher"}),
+    awful.key({ "", "" }, "Print", function () awful.spawn(screenshot) end,
+              {description = "Screenshot", group = "launcher"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
