@@ -1,5 +1,5 @@
 !! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=12:antialias=true
+URxvt.font: xft:Iosevka:style=Medium:size=12:antialias=true
 URxvt.boldFont: xft:Iosevka:style=Bold:size=12:antialias=true
 URxvt.italicFont: xft:Iosevka:style=Italic:size=12:antialias=true
 URxvt.boldItalicFont: xft:Iosevka:style=Bold Italic:size=12:antialias=true
@@ -13,7 +13,8 @@ URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
-URxvt.depth: 24
+URxvt.depth: 32
+URxvt.background: rgba:0000/0000/0200/c800
 URxvt.iso14755: false
 
 !! URxvt Copy Paste & Other Extensions

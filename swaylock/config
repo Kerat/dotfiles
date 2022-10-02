@@ -1,0 +1,8 @@
+daemonize
+ignore-empty-password
+show-failed-attempts
+image=$HOME/.config/swaylock/lockscreen
+scaling=fit
+color=000080
+font=SF Pro Display
+font-size=15
