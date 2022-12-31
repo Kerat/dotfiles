@@ -2,19 +2,15 @@
   output eDP-1 mode 1920x1200 position 0,0
 }
 {
+  output eDP-1 mode 1920x1200 position 0,900
+  output "Dell Inc. DELL U2721DE H5D8Y13" mode 2560x1440 position 1920,0
+}
+{
   output eDP-1 mode 1920x1200 position 0,1080
-  output "Unknown HP E24u G4 CN41481JS3" mode 1920x1080 position 0,0
+  output * mode 1920x1080 position 0,0
 }
 {
   output eDP-1 mode 1920x1200 position 960,1080
   output * mode 1920x1080 position 0,0
   output * mode 1920x1080 position 1920,0
-}
-{
-  output eDP-1 mode 1920x1200 position 0,0
-  output "Philips Consumer Electronics Company Philips 244E AU51205004264" mode 1920x1080 position 1920,0
-}
-{
-  output eDP-1 mode 1920x1200 position 0,900
-  output "Dell Inc. DELL U2721DE H5D8Y13" mode 2560x1440 position 1920,0
 }

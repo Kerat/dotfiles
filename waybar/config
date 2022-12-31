@@ -13,8 +13,10 @@
     "modules-right": [
         "network",
         "pulseaudio",
+        "backlight",
         "battery",
-        "tray"
+        "tray",
+        "custom/power"
     ],
 
     // Modules
@@ -27,21 +29,21 @@
       "tooltip-format": "{:%A %d %B %H:%M}"
     },
     "network": {
-        "interval": 5,
-        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "interval": 1,
+        "format-wifi": " {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": " {ifname}", // Icon: ethernet
+        "format-disconnected": " Disconnected",
+        "on-click": "foot nmtui"
     },
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -49,16 +51,22 @@
         },
         "on-click": "pavucontrol"
     },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {icon} {percent}%",
+        "format-icons": ["", ""]
+    },
     "battery": {
         "interval": 10,
         "states": {
             "warning": 30,
-            "critical": 15
+            "critical": 15,
+            "nominal": 100
         },
         // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
+        "format": " {capacity}%", // Icon: bolt
         // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
         "format-icons": [
             "", // Icon: battery-full
             "", // Icon: battery-three-quarters
@@ -71,6 +79,10 @@
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "/usr/bin/wlogout"
     }
 }
 

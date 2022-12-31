@@ -1,179 +1,100 @@
-/* Keyframes */
-@keyframes blink-warning {
-    70% {
-        color: white;
-    }
-
-    to {
-        color: white;
-        background-color: orange;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: white;
-    }
-
-    to {
-        color: white;
-        background-color: red;
-    }
-}
-
-/* Base styles */
-
-/* Reset all styles */
 * {
     border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
+    font-family: SF Pro Display, Font Awesome, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 20px;
+    padding-top: 0.5px;
 }
 
-/* The whole bar */
-#waybar {
-    background: #FFFFFF;
-    color: black;
-    font-family: SF Pro Display, Cantarell, Noto Sans, sans-serif;
-    font-size: 13px;
+window {
+	/*font-weight: bold;*/
 }
-
-/* Each module */
-#battery,
-#clock,
-#cpu,
-#custom-keyboard-layout,
-#memory,
-#mode,
-#network,
-#pulseaudio,
-#temperature,
-#tray {
-    padding-left: 10px;
-    padding-right: 10px;
+window#waybar {
+    background: rgba(0, 0, 0, 0);
 }
-
-
-/* Module styles */
-#battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+/*-----module groups----*/
+.modules-right {
+    margin: 2px 1px 0 2px;
 }
-
-#battery.warning {
-    color: orange;
+.modules-center {
+    margin: 0px 0 0 0;
 }
-
-#battery.critical {
-    color: red;
+.modules-center button:hover {
+    box-shadow: inherit;
+	background-color: rgba(0,153,153,1);
 }
-
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+.modules-left {
+    margin: 2px 0 0 5px;
+	background-color: rgba(0,119,179,0.6);
 }
-
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-#clock {
-    font-weight: bold;
-    opacity: 1;
-}
-
-#cpu {
-  /* No styles */
-}
-
-#cpu.warning {
-    color: orange;
-}
-
-#cpu.critical {
-    color: red;
-}
-
-#memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#memory.warning {
-    color: orange;
-}
-
-#memory.critical {
-    color: red;
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-#mode {
-    background: #64727D;
-    border-top: 2px solid white;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-}
-
-#network {
-    /* No styles */
-}
-
-#network.disconnected {
-    color: orange;
-}
-
-#pulseaudio {
-    /* No styles */
-}
-
-#pulseaudio.muted {
-    /* No styles */
-}
-
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
-#temperature {
-    /* No styles */
-}
-
-#temperature.critical {
-    color: red;
-}
-
-#tray {
-    /* No styles */
-}
-
-#window {
-    font-weight: bold;
-}
-
+/*-----modules indv----*/
 #workspaces button {
-    /*border-top: 2px solid transparent;*/
-    /* To compensate for the top border and still have vertical centering */
-    /*padding-bottom: 2px;*/
-    /*padding-left: 10px;*/
-    /*padding-right: 10px;*/
-    color: #888888;
+    padding: 1px 5px;
+    background-color: transparent;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+	background-color: rgba(0,153,153,1);
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
+	background-color: rgba(0,43,51,0.85);
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#backlight,
+#tray,
+#mode,
+#custom-power,
+#custom-menu,
+#idle_inhibitor {
+    padding: 0 10px;
+    color: black;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+#mode {
+    color: #cc3436;
+    font-weight: bold;
+}
+/*-----Indicators----*/
+#idle_inhibitor.activated {
+    color: #2dcc36;
+}
+#pulseaudio.muted {
+    color: #cc3436;
+}
+#battery.charging {
+    background-color: #2dcc36;
+}
+#battery.nominal {
+    background-color: #2dcc36;
     color: white;
-    background-color: #285577;
 }
-
-#workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+#battery.warning:not(.charging) {
+	background-color: #e6e600;
 }
-
+#battery.critical:not(.charging) {
+    background-color: #cc3436;
+}
+#temperature.critical {
+    color: #cc3436;
+}
+#clock {
+    color: black;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+/*-----Colors----*/
+/*
+ *rgba(0,85,102,1),#005566 --> Indigo(dye)
+ *rgba(0,43,51,1),#002B33 --> Dark Green 
+ *rgba(0,153,153,1),#009999 --> Persian Green 
+ *
+ */
