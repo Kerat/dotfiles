@@ -244,7 +244,7 @@ client.focused #FFFFFF #F0FFFF #000000 #F0FFFF #F0FFFF
 client.unfocused #333333 #333333 #FFFFFF
 client.focused_inactive #333333 #333333 #FFFFFF #00000000 #00000000
 
-set $wob wob --config /etc/sway/wob/wob.ini
+set $wob wob
 
 exec_always {
     systemctl --user import-environment
