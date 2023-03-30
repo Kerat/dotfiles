@@ -1,0 +1,78 @@
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Source Sans Pro";
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+
+window#waybar {
+    color: black;
+    background-color: azure;
+}
+
+#workspaces {
+    margin: 0px 5px;
+    padding: 3px 0px;
+}
+
+#custom-scratchpad {
+    margin: 0px	5px;
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    color: black;
+}
+
+#workspaces button.visible {
+    color: black;
+}
+
+#workspaces button.active {
+    color: black;
+}
+
+#workspaces button.focused {
+    color: black;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    color: white; 
+    font-weight: bold;
+    background: grey;
+    border-radius: 100%;
+}
+
+#mode, 
+#battery, 
+#cpu, 
+#memory, 
+#network, 
+#pulseaudio, 
+#idle_inhibitor, 
+#temperature,
+#custom-layout,
+#backlight {
+    margin: 0px 6px 0px 10px;
+}
+
+#clock {
+    margin: 0px 6px 0px 10px;
+}
+
+#battery.warning {
+   color: rgba(255, 210, 4, 1);
+}
+
+#battery.critical {
+    color: rgba(238, 46, 36, 1);
+}
+
+#battery.charging {
+    color: rgba(217, 216, 216, 1);
+}
