@@ -1,10 +1,19 @@
 # Read `man 5 sway` for a complete reference.
 
 # Display manager
-exec kanshi
+exec_always /usr/bin/kanshi
+
+# Run KeepassXC at startup and put to scratchpad
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+for_window [app_id="org.keepassxc.KeePassXC"] move window to scratchpad
+for_window [title="Unlock Database - KeePassXC"] focus
+exec /usr/bin/keepassxc
 
 # Floating
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="virt-manager"] floating enable
+for_window [app_id="org.gnome.Nautilus"] floating enable
+for_window [title="Firefox — Sharing Indicator"] floating enable
 
 # No title bar
 default_border pixel
@@ -105,7 +114,7 @@ bindsym $mod+Shift+q kill
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload; exec /usr/bin/kanshi;
+    bindsym $mod+Shift+c reload; exec /usr/bin/pkill kanshi;
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
