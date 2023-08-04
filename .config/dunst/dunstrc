@@ -1,0 +1,10 @@
+[global]
+font="SF Pro Display","Font Awesome"
+corner_radius=5
+frame_width=0
+
+[colors]
+foreground="#FFFFFF"
+background="#404040BF"
+
+
