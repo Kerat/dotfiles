@@ -39,7 +39,7 @@ set $browserPerso firefox -P Tarek-Perso
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun | xargs swaymsg exec --
+set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/tmarce/Images/Wallpapers/audi-quattro-sport-coupe-1985-by-musketon-1920×1200.jpg stretch
