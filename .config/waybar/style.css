@@ -1,8 +1,8 @@
 * {
     border:        none;
-    border-radius: 0;
-    font-family:   "Source Sans Pro";
-    font-size:     15px;
+    border-radius: 20px;
+    font-family:   "SF Pro Display", "Font Awesome 6 Free";
+    font-size:     16px;
     box-shadow:    none;
     text-shadow:   none;
     transition-duration: 0s;
@@ -11,6 +11,7 @@
 window#waybar {
     color: black;
     background-color: azure;
+    background-color: rgba(240, 255, 255, 0.6);
 }
 
 #workspaces {
@@ -45,7 +46,7 @@ window#waybar {
     color: white; 
     font-weight: bold;
     background: grey;
-    border-radius: 100%;
+    border-radius: 100px;
 }
 
 #mode, 
