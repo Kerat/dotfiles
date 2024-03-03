@@ -18,6 +18,10 @@ set $menu wofi -S drun,run
 set $webbrowser firefox
 
 # Output configuration
+exec_always {
+	pkill kanshi
+	kanshi &
+}
 # Set wallpaper
 output * bg $(find ~/.wallpaper -type f | shuf -n 1) fill
 

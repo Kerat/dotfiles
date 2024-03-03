@@ -1,0 +1,8 @@
+profile laptop {
+	output eDP-1
+}
+
+profile salon {
+	output eDP-1 mode 1920x1080 position 320,1440
+	output "Dell Inc. DELL U2713HM 7JNY537I659S" mode 2560x1440 position 0,0
+}
