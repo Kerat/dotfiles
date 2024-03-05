@@ -24,14 +24,13 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
 
 # No title bar
 default_border pixel
 
-# No border on unfocused windows 
-# client.target border bg text indicator child_border
-client.focused #FFFFFFFF #FFFFFFFF #000000FF #FFFFFFFF #FFFFFFFF
-client.unfocused #FF000000  #FF000000 #FF000000 #FF000000 #FF000000
+# Do not focus on mouse hover
+focus_follows_mouse no 
 
 ### Variables
 # Logo key. Use Mod1 for Alt. Mod4 for logo key.
