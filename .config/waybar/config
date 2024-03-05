@@ -11,6 +11,7 @@
         "clock"
     ],
     "modules-right": [
+        "idle_inhibitor",
         "network",
         "pulseaudio",
         "backlight",
@@ -27,6 +28,13 @@
       "interval": 1,
       "format": "{:%A %d %B %H:%M}", // Icon: calendar-alt
       "tooltip-format": "{:%A %d %B %H:%M}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        } 
     },
     "network": {
         "interval": 1,
