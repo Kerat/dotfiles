@@ -13,6 +13,12 @@ client.focused_inactive #ffffffff #e0e0e0a0 #000000ff
 # Display manager
 exec_always /usr/bin/kanshi
 
+# Udiskie
+exec_always {
+    pkill udiskie
+    udiskie &
+}
+
 # Run KeepassXC at startup and put to scratchpad
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [app_id="org.keepassxc.KeePassXC"] move window to scratchpad
