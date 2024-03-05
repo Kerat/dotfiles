@@ -1,5 +1,15 @@
 # Read `man 5 sway` for a complete reference.
 
+# Windows title
+font SF Pro Display 11
+title_align center
+titlebar_border_thickness 0
+#client.focused_tab_title #ff000000 #ff000000 #ff000000 #00000000 #00000000
+# client.target border bg text indicator child_border
+client.unfocused #ffffffff #404040a0 #ffffffa0 #ffffffff #ffffff00
+client.focused #000000ff #ffffffa0 #000000ff #ffffffff #ffffffff
+client.focused_inactive #ffffffff #e0e0e0a0 #000000ff
+
 # Display manager
 exec_always /usr/bin/kanshi
 
