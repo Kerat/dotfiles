@@ -29,6 +29,13 @@ output * bg $(find ~/.wallpaper -type f | shuf -n 1) fill
 set $screenlock 'swaylock -f -c 000000'
 bindsym Mod4+l exec $screenlock
 
+# Idle configuration
+exec swayidle -w \
+         timeout 300 $screenlock \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep $screenlock
+
 # Web browser
 bindsym $mod+n exec $webbrowser
 
@@ -44,12 +51,14 @@ bindsym $mod+tab workspace next_on_output
 bindsym $mod+Shift+tab workspace prev_on_output
 
 bindsym --to-code {
-    $mod+b splith
-    $mod+v splitv
+    $mod+b splitv
+    $mod+v splith
 }
 
 # Floatings
 for_window [title="Picture-in-Picture"] floating enable
+for_window [app_id="thunar"] floating enable
+for_window [app_id="file-roller"] floating enable
 
 # Key bindings
 # Basics:
@@ -97,13 +106,6 @@ bindsym $mod+Ctrl+Shift+$down move workspace output down
 bindsym $mod+Ctrl+Shift+$up move workspace output up
 bindsym $mod+Ctrl+Shift+$right move workspace output right
 
-# Layout stuff:
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
-bindsym $mod+b splith
-bindsym $mod+v splitv
-
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -114,12 +116,15 @@ bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Ctrl+space sticky toggle
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
+# Move focus to the child container
+bindsym $mod+Shift+a focus child
 
 # Resizing containers:
 mode "resize" {
@@ -190,7 +195,7 @@ client.unfocused #333333 #333333 #FFFFFF
 client.focused_inactive #333333 #333333 #FFFFFF #00000000 #00000000
 
 set $wob wob
-exec_always {
+exec {
     systemctl --user import-environment
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
@@ -204,6 +209,7 @@ exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 input type:keyboard xkb_layout fr
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout us
+input 1:1:AT_Translated_Set_2_keyboard xkb_options compose:ralt
 bindsym --to-code {
  $mod+1 workspace number 1
  $mod+2 workspace number 2
