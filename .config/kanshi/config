@@ -7,6 +7,10 @@ profile atHome {
   output eDP-1 mode 1920x1200 position 0,900
   output "Dell Inc. DELL U2721DE H5D8Y13" mode 2560x1440 position 1920,0
 }
+profile atHome2 {
+  output eDP-1 mode 1920x1200 position 320,1440
+  output "Dell Inc. DELL U2713HM 7JNY537I659S" mode 2560x1440 position 0,0
+}
 profile nomad {
   output eDP-1 mode 1920x1200 position 0,0
 }
