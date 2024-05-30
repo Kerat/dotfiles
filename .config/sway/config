@@ -31,6 +31,8 @@ for_window [app_id="virt-manager"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
+for_window [class="discord"] floating enable
 
 # No title bar
 default_border pixel
@@ -98,133 +100,127 @@ bindsym $mod+Shift+n exec $browserPerso
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+# Start your launcher
+bindsym $mod+d exec $menu
 
-    # Lock screen (Win +L)
-    bindsym Mod4+l exec swaylock -f 
+# Lock screen (Win +L)
+bindsym Mod4+l exec swaylock -f 
 
-    # PrintScreen
-    bindsym Print exec grim ~/Images/Screenshots/screenshot_$(date +%d-%m-%Y_%H%M%S).png
+# PrintScreen
+bindsym Print exec grim ~/Images/Screenshots/screenshot_$(date +%d-%m-%Y_%H%M%S).png
 
-    # Pulse Audio controls
-    # increase sound volume
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl info | grep "Default Sink" | cut -f3 -d" " ) +5%
-    # decrease sound volume
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl info | grep "Default Sink" | cut -f3 -d" " ) -5% 
-    # mute sound
-    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl info | grep "Default Sink" | cut -f3 -d" " ) toggle
+# Media keys
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl -q set 5%- && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
+bindsym XF86MonBrightnessUp exec brightnessctl -q set +5% && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -ui 2 && dc -e "[`pamixer --get-volume`]sM 100d `pamixer --get-volume`<Mp" > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pamixer --allow-boost -ud 2 && dc -e "[`pamixer --get-volume`]sM 100d `pamixer --get-volume`<Mp" > $SWAYSOCK.wob
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob )
 
-    # Screen brightness controls
-    # increase screen brightness
-    bindsym XF86MonBrightnessUp exec light -A 5
-    # decrease screen brightness
-    bindsym XF86MonBrightnessDown exec light -U 5
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Reload the configuration file
+bindsym $mod+Shift+c reload; exec /usr/bin/pkill kanshi;
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload; exec /usr/bin/pkill kanshi;
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# Shutdown
+bindsym Ctrl+Mod1+Delete exec shutdown now
 
-    # Shutdown
-    bindsym Ctrl+Mod1+Delete exec shutdown now
-    
 # Moving around:
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # Workspaces:
-    # Switch to workspace
-    bindsym $mod+ampersand workspace 1
-    bindsym $mod+eacute workspace 2
-    bindsym $mod+quotedbl workspace 3
-    bindsym $mod+apostrophe workspace 4
-    bindsym $mod+parenleft workspace 5
-    bindsym $mod+minus workspace 6
-    bindsym $mod+egrave workspace 7
-    bindsym $mod+underscore workspace 8
-    bindsym $mod+ccedilla workspace 9
-    bindsym $mod+agrave workspace 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+ampersand move container to workspace 1
-    bindsym $mod+Shift+eacute move container to workspace 2
-    bindsym $mod+Shift+quotedbl move container to workspace 3
-    bindsym $mod+Shift+apostrophe move container to workspace 4
-    bindsym $mod+Shift+parenleft move container to workspace 5
-    bindsym $mod+Shift+minus move container to workspace 6
-    bindsym $mod+Shift+egrave move container to workspace 7
-    bindsym $mod+Shift+underscore move container to workspace 8
-    bindsym $mod+Shift+ccedilla move container to workspace 9
-    bindsym $mod+Shift+agrave move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-    # Move workspaces to monitors
-    bindsym $mod+Ctrl+Shift+$left move workspace to output right
-    bindsym $mod+Ctrl+Shift+$right move workspace to output left
-    bindsym $mod+Ctrl+Shift+$down move workspace to output down
-    bindsym $mod+Ctrl+Shift+$up move workspace to output up
+# Switch to workspace
+bindsym $mod+ampersand workspace 1
+bindsym $mod+eacute workspace 2
+bindsym $mod+quotedbl workspace 3
+bindsym $mod+apostrophe workspace 4
+bindsym $mod+parenleft workspace 5
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
+# Move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2
+bindsym $mod+Shift+quotedbl move container to workspace 3
+bindsym $mod+Shift+apostrophe move container to workspace 4
+bindsym $mod+Shift+parenleft move container to workspace 5
+bindsym $mod+Shift+minus move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+underscore move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+# Move workspaces to monitors
+bindsym $mod+Ctrl+Shift+$left move workspace to output right
+bindsym $mod+Ctrl+Shift+$right move workspace to output left
+bindsym $mod+Ctrl+Shift+$down move workspace to output down
+bindsym $mod+Ctrl+Shift+$up move workspace to output up
 
 # Layout stuff:
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
+# Move focus to the parent container
+bindsym $mod+a focus parent
 
 # Scratchpad:
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+parenright move scratchpad
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+parenright move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+parenright scratchpad show
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+parenright scratchpad show
 
 # Resizing containers:
 mode "resize" {
