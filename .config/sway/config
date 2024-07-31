@@ -14,10 +14,7 @@ client.focused_inactive #ffffffff #e0e0e0a0 #000000ff
 exec_always ~/.local/bin/kanshi
 
 # Udiskie
-exec_always {
-    pkill udiskie
-    udiskie &
-}
+exec udiskie -a
 
 # Run KeepassXC at startup and put to scratchpad
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
@@ -27,6 +24,7 @@ exec /usr/bin/keepassxc
 
 # Floating
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman"] floating enable
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
@@ -38,7 +36,7 @@ for_window [class="discord"] floating enable
 default_border pixel
 
 # Do not focus on mouse hover
-focus_follows_mouse no 
+focus_follows_mouse no
 
 ### Variables
 # Logo key. Use Mod1 for Alt. Mod4 for logo key.
