@@ -12,6 +12,7 @@
     ],
     "modules-right": [
         "idle_inhibitor",
+        //"bluetooth",
         "network",
         "pulseaudio",
         "backlight",
@@ -35,6 +36,18 @@
             "activated": "",
             "deactivated": ""
         } 
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-off": "",
+        "format-connected": " {device_alias}",
+	    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "on-click": "blueman-manager",
+        "on-click-right": "bluetoothctl power off; pkill blueman",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "network": {
         "interval": 1,
