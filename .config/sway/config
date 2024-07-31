@@ -11,7 +11,7 @@ client.focused #000000ff #ffffffa0 #000000ff #ffffffff #ffffffff
 client.focused_inactive #ffffffff #e0e0e0a0 #000000ff
 
 # Display manager
-exec_always /usr/bin/kanshi
+exec_always ~/.local/bin/kanshi
 
 # Udiskie
 exec_always {
@@ -125,7 +125,7 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
 floating_modifier $mod normal
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload; exec /usr/bin/pkill kanshi;
+bindsym $mod+Shift+c reload; exec pkill kanshi
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'

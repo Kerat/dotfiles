@@ -1,7 +1,13 @@
 profile atHelios {
   output eDP-1 mode 1920x1200 position 960,1080
-  output * mode 1920x1080 position 0,0
-  output * mode 1920x1080 position 1920,0
+  output "HP Inc. HP E24m G4 *" {
+        mode 1920x1080
+        position 0,0
+  }
+  output "HP Inc. HP E24u G4 *" {
+        mode 1920x1080
+        position 1920,0
+  }
 }
 profile atHome {
   output eDP-1 mode 1920x1200 position 0,900
