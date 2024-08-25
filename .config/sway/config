@@ -17,6 +17,9 @@ set $menu wofi -S drun,run
 # Set webbrowser
 set $webbrowser firefox
 
+# Nextcloud Desktop client
+exec nextcloud
+
 # Output configuration
 exec kanshi
 
