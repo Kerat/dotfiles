@@ -5,10 +5,10 @@
     // "width": 1280, // Waybar width
     // "gtk-layer-shell": "false",
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode", "tray"],
+    "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode"],
     "modules-center": ["sway/window"],
     // "modules-right": ["custom/zypper", "network", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "pulseaudio", "custom/layout", "clock"],
-    "modules-right": ["idle_inhibitor", "bluetooth", "network","battery", "battery#bat2", "pulseaudio", "custom/layout", "clock", "custom/logout"],
+    "modules-right": ["tray", "idle_inhibitor", "bluetooth", "network","battery", "battery#bat2", "pulseaudio", "custom/layout", "clock", "custom/logout"],
     "sway/mode": {
         "format": " {}"
     },
