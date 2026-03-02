@@ -14,6 +14,9 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# completions
+for f in ~/.bash_completion.d/*; do source "$f"; done
+
 
 # Put your fun stuff here.
 export PATH="$PATH:$HOME/.local/bin"
