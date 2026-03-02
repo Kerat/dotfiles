@@ -1,0 +1,144 @@
+" --- Général ---
+set nocompatible
+filetype off
+filetype plugin indent on
+syntax enable
+
+" ============================================================
+"  APPARENCE
+" ============================================================
+
+colorscheme monokai
+
+set termguicolors                         " Couleurs 24-bit
+set number                                " Numéros de ligne
+"set relativenumber                        " Numéros relatifs
+set cursorline                            " Surligner la ligne courante
+set signcolumn=yes                        " Toujours afficher la gouttière
+set colorcolumn=80,120                    " Colonnes repères
+set laststatus=2                          " Statusline toujours visible
+set noshowmode                            " Masqué (géré par airline)
+set showcmd                               " Afficher les commandes en cours
+set wildmenu                              " Menu complétion commandes
+set scrolloff=8                           " Garder 8 lignes autour du curseur
+
+" Couleur num ligne courante
+highlight CursorLineNr guifg=#ffffff gui=bold
+
+" Airline
+"let g:airline_theme = 'monokai'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+" ============================================================
+"  INDENTATION & ESPACES
+" ============================================================
+
+set expandtab                             " Espaces au lieu de tabs
+set tabstop=4                             " Largeur tab = 4 espaces
+set softtabstop=4
+set shiftwidth=4                          " Indentation auto = 4
+set shiftround                            " Aligner sur un multiple de shiftwidth
+set autoindent
+set smartindent
+
+" Indentation par type de fichier
+autocmd FileType javascript,typescript,html,css,json,yaml
+    \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" Visualiser les espaces invisibles
+set list
+set listchars=tab:→\ ,trail:·,extends:»,precedes:«,nbsp:␣
+
+" Supprimer les espaces en fin de ligne à la sauvegarde
+autocmd BufWritePre * :%s/\s\+$//e
+
+" ============================================================
+"  COMPORTEMENT GÉNÉRAL
+" ============================================================
+
+set hidden                                " Changer de buffer sans sauvegarder
+set noswapfile
+set nobackup
+set undofile                              " Historique d'annulation persistant
+set undodir=~/.vim/undodir
+
+set ignorecase                            " Recherche insensible à la casse...
+set smartcase                             " ...sauf si majuscule présente
+set incsearch
+set hlsearch
+set splitbelow splitright                 " Splits naturels
+
+"set updatetime=300                        " Pour gitgutter / coc
+"set timeoutlen=500
+
+" ============================================================
+"  RACCOURCIS CLAVIER
+" ============================================================
+
+let mapleader = " "                       " Leader = Espace
+
+" Which key
+nnoremap <silent> <Leader>? :WhichKey '<Space>'<CR>
+set timeoutlen=300 " delai affichagee ms
+
+" --- Navigation buffers ---
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bp :bprevious<CR>
+nnoremap <Leader>bd :bdelete<CR>
+
+" --- NERDTree ---
+nnoremap <Leader>e :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+
+" --- FZF ---
+nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>g :Rg<CR>
+nnoremap <Leader>/ :BLines<CR>
+
+" --- CoC (LSP) ---
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>ca <Plug>(coc-codeaction)
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+
+" --- EasyMotion ---
+nmap <Leader>s <Plug>(easymotion-s2)
+
+" --- Divers ---
+nnoremap <Leader><Leader> :nohlsearch<CR>  " Effacer le surlignage
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap Y y$                              " Y cohérent avec D et C
+nnoremap <C-d> <C-d>zz                    " Centrer après scroll
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv                           " Centrer sur les résultats de recherche
+nnoremap N Nzzzv
+
+" ============================================================
+"  ALE (Linting)
+" ============================================================
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'prettier'],
+\   'python': ['black', 'isort'],
+\   'go': ['gofmt'],
+\}
+let g:ale_linters = {
+\   'python': ['flake8', 'mypy'],
+\   'javascript': ['eslint'],
+\}
